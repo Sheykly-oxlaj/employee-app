@@ -1,27 +1,27 @@
 class DepartmentsController < ApplicationController
-  def index 
-    departments = Department.all
-    render json: departments.as_json
-  end 
+  def index
+    @departments = Department.all
+    render :index
+  end
 
   def show
-    department = Department.find_by(id: params[:id])
-    render json: department.as_json
+    @department = Department.find_by(id: params[:id])
+    render :show
   end
 
   def create
     department = Department.new(
       name: params["name"],
       manager: params["manager"],
-      code: params["code"]
+      code: params["code"],
     )
     if department.save
       render json: department.as_json
-    else 
+    else
       render json: { errors: department.errors.full_messages }, status: 418
-    end 
-  end 
-  
+    end
+  end
+
   def update
     department = Department.find_by(id: params[:id])
     department.name = params[:name] || department.name
@@ -30,14 +30,14 @@ class DepartmentsController < ApplicationController
 
     if department.save
       render json: department.as_json
-    else 
+    else
       render json: { errors: department.errors.full_messages }, status: 418
-    end 
+    end
   end
 
   def destroy
     department = Department.find_by(id: params[:id])
     department.destroy
-    render json: {message: "department removed succesfully"}
+    render json: { message: "department removed succesfully" }
   end
 end

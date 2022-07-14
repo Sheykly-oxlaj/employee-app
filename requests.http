@@ -10,3 +10,14 @@ Content-Type: application/json
   "job_title": "Dark Knight",
   "department_id": "1"
 }
+
+### Update employee
+PATCH  http://localhost:3000/employees/16.json
+Content-Type: application/json
+
+{
+  "job_title": "Assistant Orphan"
+}
+
+### Destroy employee
+DELETE http://localhost:3000/employees/15.json

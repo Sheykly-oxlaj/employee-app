@@ -12,11 +12,11 @@ Content-Type: application/json
 }
 
 ### Update employee
-PATCH  http://localhost:3000/employees/16.json
+PATCH  http://localhost:3000/employees/5.json
 Content-Type: application/json
 
 {
-  "job_title": "Assistant Orphan"
+   "email": "batman@example.com"
 }
 
 ### Destroy employee

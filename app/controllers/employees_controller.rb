@@ -35,8 +35,12 @@ class EmployeesController < ApplicationController
     employee.job_title = params[:job_title] || employee.job_title
     employee.department_id = params[:department_id] || employee.department_id
 
-    employee.save 
-    render json: employee.as_json
+    if employee.save
+      render json: employee.as_json
+      else 
+        render json: { errors: employee.errors.full_messages }, 
+          status: 418
+      end 
   end
 
   def destroy

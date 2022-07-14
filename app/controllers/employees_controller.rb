@@ -17,6 +17,9 @@ class EmployeesController < ApplicationController
       phone: params["phone"],
       job_title: params["job_title"],
       department_id: params["department_id"],
+      password: params["password"],
+      password_confirmation: params["password_confirmation"],
+      admin: params["admin"],
     )
     if @employee.save
       render json: @employee.as_json
@@ -33,6 +36,7 @@ class EmployeesController < ApplicationController
     @employee.phone = params[:phone] || @employee.phone
     @employee.job_title = params[:job_title] || @employee.job_title
     @employee.department_id = params[:department_id] || @employee.department_id
+    @employee.admin = params[:admin] || @employee.admin
 
     if @employee.save
       render json: @employee.as_json

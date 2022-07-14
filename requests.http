@@ -1,22 +1,29 @@
+@jwt = eyJhbGciOiJIUzI1NiJ9.eyJlbXBsb3llZV9pZCI6MTcsImV4cCI6MTY1NzkxODMxNn0.5SjNSks02Je8uSIDJ4Yjm3z643NFsRkgBr-sWU1u0IA
+
 ### Create employee
 POST http://localhost:3000/employees.json
+Authorization: Bearer {{jwt}}
 Content-Type: application/json 
 
 {
-  "first_name": "",
-  "last_name": "Wayne",
-  "email": "batman@example.com",
+  "first_name": "Bruce",
+  "last_name": "Wayne Jr.",
+  "email": "batmanjr@example.com",
   "phone": "345-876-0987",
   "job_title": "Dark Knight",
-  "department_id": "1"
+  "department_id": "1",
+  "password": "password", 
+  "password_confirmation": "password", 
+  "admin": true
 }
 
 ### Update employee
-PATCH  http://localhost:3000/employees/5.json
+PATCH  http://localhost:3000/employees/8.json
+Authorization: Bearer {{jwt}}
 Content-Type: application/json
 
 {
-   "email": "batman@example.com"
+   "job_title": "Wonder Woman"
 }
 
 ### Destroy employee
@@ -43,3 +50,12 @@ Content-Type: application/json
 
 ### Destroy department
 DELETE http://localhost:3000/departments/2.json
+
+### sessions create
+POST http://localhost:3000/sessions.json
+Content-Type: application/json
+
+{
+  "id": 17,
+  "password": "password"
+}

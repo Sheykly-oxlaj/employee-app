@@ -18,8 +18,12 @@ class EmployeesController < ApplicationController
       job_title: params["job_title"],
       department_id: params["department_id"]
     )
-    employee.save
+    if employee.save
     render json: employee.as_json
+    else 
+      render json: { errors: employee.errors.full_messages }, 
+        status: 418
+    end 
   end 
   
   def update

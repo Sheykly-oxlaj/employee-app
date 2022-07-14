@@ -3,7 +3,7 @@ POST http://localhost:3000/employees.json
 Content-Type: application/json 
 
 {
-  "first_name": "Bruce",
+  "first_name": "",
   "last_name": "Wayne",
   "email": "batman@example.com",
   "phone": "345-876-0987",

@@ -21,3 +21,25 @@ Content-Type: application/json
 
 ### Destroy employee
 DELETE http://localhost:3000/employees/15.json
+
+
+### Create department
+POST http://localhost:3000/departments.json
+Content-Type: application/json 
+
+{
+  "name": "Internal Affairs",
+  "manager": "Snitch",
+  "code": "1"
+}
+
+### Update department
+PATCH  http://localhost:3000/departments/4.json
+Content-Type: application/json
+
+{
+   "code": "789"
+}
+
+### Destroy department
+DELETE http://localhost:3000/departments/2.json
